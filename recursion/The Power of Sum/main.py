@@ -16,21 +16,12 @@ import sys
 #
 
 def powerSum(X, N):
-    # Write your code here
-    
-    # if statement that returns at the start if cannot be reduced
+    # if statement that returns at the start if cannot be reduced, return value should be one at recursion.
+    # math.log(X,N) X = main number, N = base logarithm (eg. once X is reduced, you can raise to the power of N to achieve the original X value)
     # Take the root of the number, this will be the max value attainable
     # return posCombosNum;
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+#testing
+powerSum(27,3);
 
-    X = int(input().strip())
 
-    N = int(input().strip())
-
-    result = powerSum(X, N)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
