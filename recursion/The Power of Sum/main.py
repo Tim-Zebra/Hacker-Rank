@@ -14,14 +14,28 @@ import sys
 #  1. INTEGER X
 #  2. INTEGER N
 #
+def isDecimal(num):
+  numFloat = int(num);
+  if (numFloat - num) != 0:
+    return False;
+  else:
+    return True;
 
 def powerSum(X, N):
-    # if statement that returns at the start if cannot be reduced, return value should be one at recursion.
-    # math.log(X,N) X = main number, N = base logarithm (eg. once X is reduced, you can raise to the power of N to achieve the original X value)
-    # Take the root of the number, this will be the max value attainable
-    # return posCombosNum;
+  posCombosNum = 0;
+  # if statement that returns at the start if cannot be reduced, return value should be one at recursion.
+  maxNum = X ** (1/N);
+  print(maxNum);
+  if isDecimal(maxNum) == True:
+    posCombosNum += 1;
+  else:
+    posCombosNum += powerSum(maxNum,N);
+
+  # Take the root of the number, this will be the max value attainable
+  print('possible combos: ', posCombosNum);
+  return posCombosNum;
+
+
 
 #testing
-powerSum(27,3);
-
-
+powerSum(100,2);
