@@ -17,21 +17,28 @@ import sys
 def isDecimal(num):
   numFloat = int(num);
   if (numFloat - num) != 0:
-    return False;
-  else:
     return True;
+  else:
+    return False;
 
 def powerSum(X, N):
   posCombosNum = 0;
-  # if statement that returns at the start if cannot be reduced, return value should be one at recursion.
+    # Takes the log of the number given the N input (squared, cubed, etc.), this will be the max value attainable
   maxNum = X ** (1/N);
-  print(maxNum);
+  # list of numbers that can be raised to the N that can add up to the original X
+  newList = [];
+
+  print('maxNum: ', maxNum);
+  print(isDecimal(maxNum));
   if isDecimal(maxNum) == True:
-    posCombosNum += 1;
+    posCombosNum = 1;
   else:
+    for k in range(int(maxNum)):
+      newList.append(k);
+    print('newList:', newList);
     posCombosNum += powerSum(maxNum,N);
 
-  # Take the root of the number, this will be the max value attainable
+
   print('possible combos: ', posCombosNum);
   return posCombosNum;
 
