@@ -31,6 +31,15 @@ function readLine() {
 
 function formingMagicSquare(s) {
     // Write your code here
+    // Only need to change so many numbers. Will assume the most common value is the target.
+
+    // Need to get all values of rows and columns
+    // Need to evaluate rows and columns whether they're greater or less than the target number
+    // Determine numbers to change.
+
+    // subtract correct array from old array to find difference
+
+    // return difference
 
 }
 
