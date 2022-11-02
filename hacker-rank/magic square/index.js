@@ -34,6 +34,7 @@ function readLine() {
 function formingMagicSquare(s) {
     // Write your code here
     // Only need to change so many numbers. Will assume the most common value is the target.
+    let minimumDif = 0;
     let row1Sum = 0;
     let row2Sum = 0;
     let row3Sum = 0;
@@ -51,8 +52,9 @@ function formingMagicSquare(s) {
     // Determine numbers to change.
 
     // subtract correct array from old array to find difference
-
-    // return difference
+    console.log("input array: ", s)
+    console.log("minimum difference returned: ", minimumDif, + "\n\n\n");
+    return minimumDif;
 
 }
 
