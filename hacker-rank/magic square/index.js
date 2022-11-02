@@ -29,6 +29,8 @@ function readLine() {
  * The function accepts 2D_INTEGER_ARRAY s as parameter. [[], [], []]
  */
 
+// ToDo: HOW TO SOLVE A MAGIC SQUARE??
+
 function formingMagicSquare(s) {
     // Write your code here
     // Only need to change so many numbers. Will assume the most common value is the target.
@@ -43,7 +45,7 @@ function formingMagicSquare(s) {
     let diag1Sum = 0;
     // From top right to bottom left
     let diag2Sum = 0;
-    
+
     // Need to get all values of rows and columns and diagonals
     // Need to evaluate rows and columns whether they're greater or less than the target number
     // Determine numbers to change.
