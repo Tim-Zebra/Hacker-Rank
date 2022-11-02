@@ -59,9 +59,9 @@ function formingMagicSquare(s) {
 
 
 // Testing
-testArray1 = [[], [], []];
-testArray2 = [[], [], []];
-testArray3 = [[], [], []];
+testArray1 = [[5,3,4], [1,5,8], [6,4,2]]; //Expecting 7
+testArray2 = [[4,9,2], [3,5,7], [8,1,5]]; //Expecting 1
+testArray3 = [[4,8,2], [4,5,7], [6,1,6]]; //Expecting 4
 formingMagicSquare(testArray1);
 formingMagicSquare(testArray2);
 formingMagicSquare(testArray3);
