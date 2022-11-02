@@ -56,6 +56,16 @@ function formingMagicSquare(s) {
 
 }
 
+
+
+// Testing
+testArray1 = [[], [], []];
+testArray2 = [[], [], []];
+testArray3 = [[], [], []];
+formingMagicSquare(testArray1);
+formingMagicSquare(testArray2);
+formingMagicSquare(testArray3);
+
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
