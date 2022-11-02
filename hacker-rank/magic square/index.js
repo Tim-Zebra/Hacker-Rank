@@ -32,8 +32,19 @@ function readLine() {
 function formingMagicSquare(s) {
     // Write your code here
     // Only need to change so many numbers. Will assume the most common value is the target.
+    let row1Sum = 0;
+    let row2Sum = 0;
+    let row3Sum = 0;
+    let col1Sum = 0;
+    let col2Sum = 0;
+    let col3Sum = 0;
 
-    // Need to get all values of rows and columns
+    // From top left to bottom right
+    let diag1Sum = 0;
+    // From top right to bottom left
+    let diag2Sum = 0;
+    
+    // Need to get all values of rows and columns and diagonals
     // Need to evaluate rows and columns whether they're greater or less than the target number
     // Determine numbers to change.
 
