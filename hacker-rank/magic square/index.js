@@ -30,7 +30,8 @@ function readLine() {
  */
 
 // ToDo: HOW TO SOLVE A MAGIC SQUARE??
-
+// Must have 1-9 only 1 time.
+// for 3x3 magic number should be 15. 1+2+3...+8+9/3 = 15.
 function formingMagicSquare(s) {
     // Write your code here
     // Only need to change so many numbers. Will assume the most common value is the target.
