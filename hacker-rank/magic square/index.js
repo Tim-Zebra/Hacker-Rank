@@ -107,7 +107,27 @@ const checkRows = (s, array) => {
 
 // Checks columns and returns array value of each column [c1, c2, c3]
 const checkColumns = (s, array) => {
-    
+    // variables for array columnn conversion
+    let newS = [[], [], []];
+    let newArray = [[], [], []];
+
+    // convert columns into rows, then can use the checkRows method
+    let count = 0;
+    while(count < s.length) {
+        
+        
+        count++;
+    }
+
+
+    let difference = 0;
+    // console.log('thisHappened', s.length);
+    for(let k = 0; k < s.length; k++) {
+        for(let l = 0; l < s[0].length; l++) {
+            difference += Math.abs(s[k][l] - array[k][l]);
+        }
+    }
+    return difference;
 }
 // Checks diagonals and returns arrray value of each diagnoal [top left to bottom right, top right to bottom left]
 const checkDiagnoals = (s, array) => {
