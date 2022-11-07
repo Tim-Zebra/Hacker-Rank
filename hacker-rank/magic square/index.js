@@ -80,21 +80,11 @@ function formingMagicSquare(s) {
 
     // subtract correct array from old array to find difference
     // console.log("input array: ", s)
-    // console.log("minimum difference returned: ", minimumDif, + "\n\n\n");
+    // console.log("minimum difference returned: ", minimumDif, "\n\n");
     return minimumDif;
 }
 
 const differenceFinder = (s, array) => {
-    let difference = 0;
-    difference += checkRows(s, array);
-    difference += checkColumns(s, array);
-    difference += checkDiagnoals(s, array);
-
-    //console.log("Here is the original array: ", s, "\nHere is the subtracting array: ", array, "\n\n Here is the difference: ", difference, "\n\n");
-}
-
-// Checks rows and returns difference of each row. [r1, r2, r3]
-const checkRows = (s, array) => {
     let difference = 0;
     // console.log('thisHappened', s.length);
     for(let k = 0; k < s.length; k++) {
@@ -104,6 +94,11 @@ const checkRows = (s, array) => {
     }
     return difference;
 }
+
+// // Checks rows and returns difference of each row. [r1, r2, r3]
+// const checkRows = (s, array) => {
+
+// }
 
 // // Checks columns and returns array value of each column [c1, c2, c3]
 // const checkColumns = (s, array) => {
