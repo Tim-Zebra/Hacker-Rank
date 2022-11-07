@@ -21,3 +21,7 @@ function flatlandSpaceStations(n, c) {
   console.log('thisHappened', maxDistance);
   return maxDistance;
 }
+
+// testing
+flatlandSpaceStations(5, [0, 4]); //expecting 2
+flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
