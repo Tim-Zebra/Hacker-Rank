@@ -112,14 +112,14 @@ const checkColumns = (s, array) => {
     let newArray = [[], [], []];
 
     // convert columns into rows, then can use the checkRows method
-    let count = 0;
-    while(count < s.length) {
-        
-        
-        count++;
+    for(let k = 0; k < s.length; k++) {
+        for(let l = 0; l < s[0].length; l++) {
+            newArray[l].push(array[k][l]);
+            newS[l].push(s[k][l]);
+        }
     }
-
-
+    console.log('thisHappened', s, array);
+console.log('thisHappened', newS, newArray);
     let difference = 0;
     // console.log('thisHappened', s.length);
     for(let k = 0; k < s.length; k++) {
