@@ -33,6 +33,18 @@ function readLine() {
 // Must have 1-9 only 1 time.
 // for 3x3 magic number should be 15. 1+2+3...+8+9/3 = 15.
 
+// all possible magic squares
+const square1 = [[8, 1, 6], [3, 5, 7], [4, 9, 2]];
+const square2 = [[4, 3, 8], [9, 5, 1], [2, 7, 6]];
+const square3 = [[2, 9, 4], [7, 5, 3], [6, 1, 8]];
+const square4 = [[6, 7, 2], [1, 5, 9], [8, 3, 4]];
+const square5 = [[8, 3, 4], [1, 5, 9], [6, 7, 2]];
+const square6 = [[4, 9, 2], [3, 5, 7], [8, 1, 6]];
+const square7 = [[2, 7, 6], [9, 5, 1], [4, 3, 8]];
+const square8 = [[6, 1, 8], [7, 5, 3], [2, 9, 4]];
+
+const squares = [square1, square2, square3, square4, square5, square6, square7, square8];
+
 // ToDo: Create outline
 function formingMagicSquare(s) {
     // Write your code here
@@ -55,8 +67,7 @@ function formingMagicSquare(s) {
         let currentDif = 0;
         let currentArray = squares[k];
 
-        console.log(currentArray - square1);
-
+        currentDif = differenceFinder(s, currentArray);
         // updates minimum different if necessary
         if(currentDif < minimumDif) {
             minimumDif = currentDif;
@@ -74,7 +85,12 @@ function formingMagicSquare(s) {
 }
 
 const differenceFinder = (array) => {
-    
+    let difference = 0;
+    difference += checkRows(array);
+    difference += checkColumns(array);
+    difference += checkDiagnoals(array);
+
+    console.log("Here is the array: ", array, "\n\n Here is the difference: ", difference, "\n\n");
 }
 
 // Checks rows and returns difference of each row. [r1, r2, r3]
@@ -83,7 +99,7 @@ const checkRows = (array) => {
 }
 
 // Checks columns and returns array value of each column [c1, c2, c3]
-const checkColumnss = (array) => {
+const checkColumns = (array) => {
     
 }
 // Checks diagonals and returns arrray value of each diagnoal [top left to bottom right, top right to bottom left]
@@ -100,16 +116,7 @@ formingMagicSquare(testArray1);
 formingMagicSquare(testArray2);
 formingMagicSquare(testArray3);
 
-const square1 = [[8, 1, 6], [3, 5, 7], [4, 9, 2]];
-const square2 = [[4, 3, 8], [9, 5, 1], [2, 7, 6]];
-const square3 = [[2, 9, 4], [7, 5, 3], [6, 1, 8]];
-const square4 = [[6, 7, 2], [1, 5, 9], [8, 3, 4]];
-const square5 = [[8, 3, 4], [1, 5, 9], [6, 7, 2]];
-const square6 = [[4, 9, 2], [3, 5, 7], [8, 1, 6]];
-const square7 = [[2, 7, 6], [9, 5, 1], [4, 3, 8]];
-const square8 = [[6, 1, 8], [7, 5, 3], [2, 9, 4]];
 
-const squares = [square1, square2, square3, square4, square5, square6, square7, square8];
 
 
 function main() {
