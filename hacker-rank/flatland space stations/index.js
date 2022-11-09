@@ -12,12 +12,15 @@ function flatlandSpaceStations(n, c) {
   let citiesWithStations = c;
   let distanceOfCityFromStation = [];
 
-  for(let k = 0; k < n; k++) {
+  for(let k = 0; k < numberOfCities; k++) {
+    let cityNum = k;
+    
     distanceOfCityFromStation.push(0);
   }
 
   // find the difference of each city to the nearest space station;
-
+  // start with index for a city
+  // check the index find the distance difference from the maximum space station.
   console.log('thisHappened', maxDistance);
   return maxDistance;
 }
