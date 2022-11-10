@@ -25,6 +25,18 @@ function flatlandSpaceStations(n, c) {
   return maxDistance;
 }
 
+// Determines distance towards previous cities
+function lookBackwards(city, array) {
+
+
+}
+
+// Determines distance to next possible city
+function lookForwards(city, array) {
+
+  
+}
+
 // testing
 flatlandSpaceStations(5, [0, 4]); //expecting 2
 flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
