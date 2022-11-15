@@ -7,24 +7,29 @@
 
 // return maxiumum distance
 function flatlandSpaceStations(n, c) {
-  let maxDistance = 0;
   let numberOfCities = n;
   let citiesWithStations = c.sort((a, b) => a - b);
   let distanceOfCityFromStation = [];
   let greatestDistanceToStationFromCities = [];
-  
+
   for(let k = 0; k < numberOfCities; k++) {
     let cityNum = k;
     distanceOfCityFromStation.push([lookBackwards(cityNum, citiesWithStations), lookForwards(cityNum, citiesWithStations)]);
-    }
-
+  }
   // Filters the values into the greatest distance away.
   for(let k = 0; k < distanceOfCityFromStation.length; k++) {
     let distances = distanceOfCityFromStation[k];
     let city = k;
     let preceedingCity = Math.abs(distances[0] - city);
     let postCity = Math.abs(distances[1] - city);
-    if(preceedingCity < postCity) {
+    console.log('preceedingCity', preceedingCity);
+    console.log('postCity', postCity);
+    if(preceedingCity === NaN) {
+      console.log('thisHappened', );
+      greatestDistanceToStationFromCities.push(postCity);
+    } else if(postCity === NaN) {
+      greatestDistanceToStationFromCities.push(preceedingCity);
+    } else if(preceedingCity < postCity) {
       greatestDistanceToStationFromCities.push(preceedingCity);
     } else {
       greatestDistanceToStationFromCities.push(postCity);
@@ -37,6 +42,7 @@ function flatlandSpaceStations(n, c) {
   // sorts largest to smallest
   greatestDistanceToStationFromCities.sort((a,b) => b - a);
   // returns the first index
+  console.log('thisHappened', greatestDistanceToStationFromCities);
   return greatestDistanceToStationFromCities[0];
 }
 
@@ -65,6 +71,6 @@ function lookForwards(city, array) {
 }
 
 // testing
-flatlandSpaceStations(5, [0, 4]); //expecting 2
- flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
- flatlandSpaceStations(20, [13, 1, 2, 3, 4, 5]); // expecting 0
+// flatlandSpaceStations(5, [0, 4]); //expecting 2
+//  flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
+ flatlandSpaceStations(20, [13, 1, 11, 10, 6]); // expecting 6
