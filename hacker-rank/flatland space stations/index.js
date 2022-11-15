@@ -15,22 +15,28 @@ function flatlandSpaceStations(n, c) {
   for(let k = 0; k < numberOfCities; k++) {
     let cityNum = k;
     
-    distanceOfCityFromStation.push(0);
+    distanceOfCityFromStation.push([lookBackwards(cityNum, citiesWithStations), lookForwards(cityNum, citiesWithStations)]);
   }
 
   // find the difference of each city to the nearest space station;
   // start with index for a city
   // check the index find the distance difference from the maximum space station.
-  console.log('thisHappened', maxDistance);
+  console.log('thisHappened', distanceOfCityFromStation);
   return maxDistance;
 }
 
 // Determines distance towards previous cities
 function lookBackwards(city, array) {
-  let nearestCity;
+  if(array.find((num => num === city)) === city) {
+    return city;
+  }
+
+  let nearestCity = city;
   for(let k = 0; k > array.length; k++) {
     if(array[k] > city){
       return nearestCity;
+    }  else if (array[k] === city) {
+      return city;
     } else {
       nearestCity = array[k];
     }
@@ -40,11 +46,19 @@ function lookBackwards(city, array) {
 
 // Determines distance to next possible city
 function lookForwards(city, array) {
-  let nearestCity;
+  if(array.find(num => num === city) === city) {
+    return city;
+  }
+
+
+  let nearestCity = city;
   for(let k = array.length; k > 0; k--) {
     if(array[k] < city){
       return nearestCity;
-    } else {
+    } else if (array[k] === city) {
+      return city;
+    }
+      else {
       nearestCity = array[k];
     }
   }
@@ -53,4 +67,4 @@ function lookForwards(city, array) {
 
 // testing
 flatlandSpaceStations(5, [0, 4]); //expecting 2
-flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
+// flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
