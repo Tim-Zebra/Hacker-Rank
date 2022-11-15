@@ -27,42 +27,49 @@ function flatlandSpaceStations(n, c) {
 
 // Determines distance towards previous cities
 function lookBackwards(city, array) {
-  if(array.find((num => num === city)) === city) {
-    return city;
-  }
+  let stations = array.find(num => num <= city)
+  console.log('thisHappened', stations);
 
-  let nearestCity = city;
-  for(let k = 0; k > array.length; k++) {
-    if(array[k] > city){
-      return nearestCity;
-    }  else if (array[k] === city) {
-      return city;
-    } else {
-      nearestCity = array[k];
-    }
-  }
-  return nearestCity;
+
+//   if(array.find((num => num === city)) === city) {
+//     return city;
+//   }
+
+//   let nearestCity = city;
+//   for(let k = 0; k > array.length; k++) {
+//     if(array[k] > city){
+//       return nearestCity;
+//     }  else if (array[k] === city) {
+//       return city;
+//     } else {
+//       nearestCity = array[k];
+//     }
+//   }
+//   return nearestCity;
 }
 
 // Determines distance to next possible city
 function lookForwards(city, array) {
-  if(array.find(num => num === city) === city) {
-    return city;
-  }
+  let stations = array.find(num => num >= city)
+  // console.log('thisHappened', stations);
+  
+  // if(array.find(num => num === city) === city) {
+  //   return city;
+  // }
 
 
-  let nearestCity = city;
-  for(let k = array.length; k > 0; k--) {
-    if(array[k] < city){
-      return nearestCity;
-    } else if (array[k] === city) {
-      return city;
-    }
-      else {
-      nearestCity = array[k];
-    }
-  }
-  return nearestCity;
+  // let nearestCity = ;
+  // for(let k = array.length; k > 0; k--) {
+  //   if(array[k] < city){
+  //     return nearestCity;
+  //   } else if (array[k] === city) {
+  //     return city;
+  //   }
+  //     else {
+  //     nearestCity = array[k];
+  //   }
+  // }
+  // return nearestCity;
 }
 
 // testing
