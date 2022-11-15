@@ -22,12 +22,9 @@ function flatlandSpaceStations(n, c) {
     let city = k;
     let preceedingCity = Math.abs(distances[0] - city);
     let postCity = Math.abs(distances[1] - city);
-    console.log('preceedingCity', preceedingCity);
-    console.log('postCity', postCity);
-    if(preceedingCity === NaN) {
-      console.log('thisHappened', );
+    if(isNaN(preceedingCity)) {
       greatestDistanceToStationFromCities.push(postCity);
-    } else if(postCity === NaN) {
+    } else if(isNaN(postCity)) {
       greatestDistanceToStationFromCities.push(preceedingCity);
     } else if(preceedingCity < postCity) {
       greatestDistanceToStationFromCities.push(preceedingCity);
@@ -42,7 +39,6 @@ function flatlandSpaceStations(n, c) {
   // sorts largest to smallest
   greatestDistanceToStationFromCities.sort((a,b) => b - a);
   // returns the first index
-  console.log('thisHappened', greatestDistanceToStationFromCities);
   return greatestDistanceToStationFromCities[0];
 }
 
