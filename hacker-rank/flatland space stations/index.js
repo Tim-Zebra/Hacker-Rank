@@ -27,14 +27,28 @@ function flatlandSpaceStations(n, c) {
 
 // Determines distance towards previous cities
 function lookBackwards(city, array) {
-
-
+  let nearestCity;
+  for(let k = 0; k > array.length; k++) {
+    if(array[k] > city){
+      return nearestCity;
+    } else {
+      nearestCity = array[k];
+    }
+  }
+  return nearestCity;
 }
 
 // Determines distance to next possible city
 function lookForwards(city, array) {
-
-  
+  let nearestCity;
+  for(let k = array.length; k > 0; k--) {
+    if(array[k] < city){
+      return nearestCity;
+    } else {
+      nearestCity = array[k];
+    }
+  }
+  return nearestCity;
 }
 
 // testing
