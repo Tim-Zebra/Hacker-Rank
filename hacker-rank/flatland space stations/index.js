@@ -9,62 +9,17 @@
 function flatlandSpaceStations(n, c) {
   let numberOfCities = n;
   let citiesWithStations = c.sort((a, b) => a - b);
-  let distanceOfCityFromStation = [];
-  let greatestDistanceToStationFromCities = [];
+  let maxDistance = 0;
 
-  for(let k = 0; k < numberOfCities; k++) {
-    let cityNum = k;
-    distanceOfCityFromStation.push([lookBackwards(cityNum, citiesWithStations), lookForwards(cityNum, citiesWithStations)]);
-  }
-  // Filters the values into the greatest distance away.
-  for(let k = 0; k < distanceOfCityFromStation.length; k++) {
-    let distances = distanceOfCityFromStation[k];
-    let city = k;
-    let preceedingCity = Math.abs(distances[0] - city);
-    let postCity = Math.abs(distances[1] - city);
-    if(isNaN(preceedingCity)) {
-      greatestDistanceToStationFromCities.push(postCity);
-    } else if(isNaN(postCity)) {
-      greatestDistanceToStationFromCities.push(preceedingCity);
-    } else if(preceedingCity < postCity) {
-      greatestDistanceToStationFromCities.push(preceedingCity);
-    } else {
-      greatestDistanceToStationFromCities.push(postCity);
-    }
-  }
+  // Finds distance of the center city between two stations
 
-  // find the difference of each city to the nearest space station;
-  // start with index for a city
-  // check the index find the distance difference from the maximum space station.
-  // sorts largest to smallest
-  greatestDistanceToStationFromCities.sort((a,b) => b - a);
-  // returns the first index
-  return greatestDistanceToStationFromCities[0];
+  // Finds the distance of the starting city from the first station
+
+  // Finds the distance between the last station and the last city
+
+  // returns max distance
 }
 
-// Determines distance towards previous cities
-function lookBackwards(city, array) {
-    let stations = array.map(station => {
-      if(station <= city){
-        return station;
-      }
-    });
-
-    stations = stations.filter(item => item != undefined);
-    return stations[stations.length-1];
-}
-
-// Determines distance to next possible city
-function lookForwards(city, array) {
-  let stations = array.map(station => {
-    if(station >= city){
-      return station;
-    }
-  });
-
-  stations = stations.filter(item => item != undefined);
-  return stations[0];
-}
 
 // testing
 // flatlandSpaceStations(5, [0, 4]); //expecting 2
