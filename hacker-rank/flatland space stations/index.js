@@ -27,8 +27,18 @@ function flatlandSpaceStations(n, c) {
 
 // Determines distance towards previous cities
 function lookBackwards(city, array) {
-  let stations = array.find(num => num <= city)
-  console.log('thisHappened', stations);
+  // finds the city with the first station that is either equal to or less than the city.
+  // let station = array.find(num => num <= city)
+  // console.log('thisHappened', station);
+    let stations = array.map(station => {
+      if(station <= city){
+        return station;
+      }
+    });
+
+    stations = stations.filter(item => item != undefined);
+
+
 
 
 //   if(array.find((num => num === city)) === city) {
@@ -50,28 +60,16 @@ function lookBackwards(city, array) {
 
 // Determines distance to next possible city
 function lookForwards(city, array) {
-  let stations = array.find(num => num >= city)
-  // console.log('thisHappened', stations);
-  
-  // if(array.find(num => num === city) === city) {
-  //   return city;
-  // }
+  let stations = array.map(station => {
+    if(station >= city){
+      return station;
+    }
+  });
 
-
-  // let nearestCity = ;
-  // for(let k = array.length; k > 0; k--) {
-  //   if(array[k] < city){
-  //     return nearestCity;
-  //   } else if (array[k] === city) {
-  //     return city;
-  //   }
-  //     else {
-  //     nearestCity = array[k];
-  //   }
-  // }
-  // return nearestCity;
+  stations = stations.filter(item => item != undefined);
+  console.log('thisHappened', stations);
 }
 
 // testing
-flatlandSpaceStations(5, [0, 4]); //expecting 2
-// flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
+// flatlandSpaceStations(5, [0, 4]); //expecting 2
+ flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
