@@ -9,27 +9,39 @@
 function flatlandSpaceStations(n, c) {
   let maxDistance = 0;
   let numberOfCities = n;
-  let citiesWithStations = c;
+  let citiesWithStations = c.sort((a, b) => a - b);
   let distanceOfCityFromStation = [];
-
+  let greatestDistanceToStationFromCities = [];
+  
   for(let k = 0; k < numberOfCities; k++) {
     let cityNum = k;
-    
     distanceOfCityFromStation.push([lookBackwards(cityNum, citiesWithStations), lookForwards(cityNum, citiesWithStations)]);
+    }
+
+  // Filters the values into the greatest distance away.
+  for(let k = 0; k < distanceOfCityFromStation.length; k++) {
+    let distances = distanceOfCityFromStation[k];
+    let city = k;
+    let preceedingCity = Math.abs(distances[0] - city);
+    let postCity = Math.abs(distances[1] - city);
+    if(preceedingCity < postCity) {
+      greatestDistanceToStationFromCities.push(preceedingCity);
+    } else {
+      greatestDistanceToStationFromCities.push(postCity);
+    }
   }
 
   // find the difference of each city to the nearest space station;
   // start with index for a city
   // check the index find the distance difference from the maximum space station.
-  console.log('thisHappened', distanceOfCityFromStation);
-  return maxDistance;
+  // sorts largest to smallest
+  greatestDistanceToStationFromCities.sort((a,b) => b - a);
+  // returns the first index
+  return greatestDistanceToStationFromCities[0];
 }
 
 // Determines distance towards previous cities
 function lookBackwards(city, array) {
-  // finds the city with the first station that is either equal to or less than the city.
-  // let station = array.find(num => num <= city)
-  // console.log('thisHappened', station);
     let stations = array.map(station => {
       if(station <= city){
         return station;
@@ -37,25 +49,7 @@ function lookBackwards(city, array) {
     });
 
     stations = stations.filter(item => item != undefined);
-
-
-
-
-//   if(array.find((num => num === city)) === city) {
-//     return city;
-//   }
-
-//   let nearestCity = city;
-//   for(let k = 0; k > array.length; k++) {
-//     if(array[k] > city){
-//       return nearestCity;
-//     }  else if (array[k] === city) {
-//       return city;
-//     } else {
-//       nearestCity = array[k];
-//     }
-//   }
-//   return nearestCity;
+    return stations[stations.length-1];
 }
 
 // Determines distance to next possible city
@@ -67,9 +61,10 @@ function lookForwards(city, array) {
   });
 
   stations = stations.filter(item => item != undefined);
-  console.log('thisHappened', stations);
+  return stations[0];
 }
 
 // testing
-// flatlandSpaceStations(5, [0, 4]); //expecting 2
+flatlandSpaceStations(5, [0, 4]); //expecting 2
  flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
+ flatlandSpaceStations(20, [13, 1, 2, 3, 4, 5]); // expecting 0
