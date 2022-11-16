@@ -21,6 +21,9 @@ function flatlandSpaceStations(n, c) {
       maxDistance = distance;
     }
   }
+
+  console.log('thisHappened', maxDistance);
+
   // Finds the distance of the starting city from the first station
   let firstCityWithStation = citiesWithStations[0];
   if(firstCityWithStation > maxDistance) {
