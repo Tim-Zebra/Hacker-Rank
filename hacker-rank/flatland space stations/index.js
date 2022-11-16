@@ -12,7 +12,15 @@ function flatlandSpaceStations(n, c) {
   let maxDistance = 0;
 
   // Finds distance of the center city between two stations
-
+  for(let k = 0; k < citiesWithStations.length-1; k++) {
+    let firstCity = citiesWithStations[k];
+    let secondCity = citiesWithStations[k+1];
+    // finds the middle city and subtracts that location from the second city.
+    let distance = (firstCity + secondCity / 2) - secondCity;
+    if(distance >= maxDistance) {
+      maxDistance = distance;
+    }
+  }
   // Finds the distance of the starting city from the first station
 
   // Finds the distance between the last station and the last city
