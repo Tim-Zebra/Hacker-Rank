@@ -15,33 +15,31 @@ function flatlandSpaceStations(n, c) {
   for(let k = 0; k < citiesWithStations.length-1; k++) {
     let firstCity = citiesWithStations[k];
     let secondCity = citiesWithStations[k+1];
+    let distance = 0;
     // finds the middle city and subtracts that location from the second city.
-    let distance = Math.abs((firstCity + secondCity / 2) - secondCity);
-    console.log('thisHappened', distance);
+    distance = Math.abs(secondCity - Math.ceil((firstCity + secondCity) / 2));
     if(distance > maxDistance) {
       maxDistance = distance;
     }
   }
-
-  console.log('thisHappened', maxDistance);
-
+  // console.log('thisHappened', maxDistance);
   // Finds the distance of the starting city from the first station
   let firstCityWithStation = citiesWithStations[0];
   if(firstCityWithStation > maxDistance) {
     maxDistance = firstCityWithStation;
   }
+  // console.log('thisHappened', maxDistance);
   // Finds the distance between the last station and the last city
   let lastCityWithStation = citiesWithStations[citiesWithStations.length-1];
-  if((numberOfCities - lastCityWithStation) > maxDistance) {
-    maxDistance = numberOfCities - lastCityWithStation;
+  if((numberOfCities -1 - lastCityWithStation) > maxDistance) {
+    maxDistance = numberOfCities -1 - lastCityWithStation;
   }
   // returns max distance
-  console.log('thisHappened', maxDistance);
   return maxDistance;
 }
 
 
 // testing
 flatlandSpaceStations(5, [0, 4]); //expecting 2
-//  flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
-//  flatlandSpaceStations(20, [13, 1, 11, 10, 6]); // expecting
+flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
+flatlandSpaceStations(20, [13, 1, 11, 10, 6]); // expecting 6
