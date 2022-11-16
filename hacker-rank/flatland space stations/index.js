@@ -22,16 +22,17 @@ function flatlandSpaceStations(n, c) {
       maxDistance = distance;
     }
   }
-  // console.log('thisHappened', maxDistance);
+
   // Finds the distance of the starting city from the first station
   let firstCityWithStation = citiesWithStations[0];
   if(firstCityWithStation > maxDistance) {
     maxDistance = firstCityWithStation;
   }
-  // console.log('thisHappened', maxDistance);
+
   // Finds the distance between the last station and the last city
   let lastCityWithStation = citiesWithStations[citiesWithStations.length-1];
   if((numberOfCities -1 - lastCityWithStation) > maxDistance) {
+    // -1 to account for the city location labeled as an index.
     maxDistance = numberOfCities -1 - lastCityWithStation;
   }
   // returns max distance
