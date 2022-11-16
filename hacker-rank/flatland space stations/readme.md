@@ -1,4 +1,6 @@
+<p align="center"><img src="./firstPlace.png" alt="gif demo" width="800" height="auto"/></p> <br />
 
+First place, for now :) (probably just ranked by last user completed lol)
 
 https://www.hackerrank.com/challenges/flatland-space-stations/problem?isFullScreen=true
 
