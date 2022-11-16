@@ -16,8 +16,9 @@ function flatlandSpaceStations(n, c) {
     let firstCity = citiesWithStations[k];
     let secondCity = citiesWithStations[k+1];
     // finds the middle city and subtracts that location from the second city.
-    let distance = (firstCity + secondCity / 2) - secondCity;
-    if(distance >= maxDistance) {
+    let distance = Math.abs((firstCity + secondCity / 2) - secondCity);
+    console.log('thisHappened', distance);
+    if(distance > maxDistance) {
       maxDistance = distance;
     }
   }
