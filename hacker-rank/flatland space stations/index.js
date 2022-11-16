@@ -22,14 +22,22 @@ function flatlandSpaceStations(n, c) {
     }
   }
   // Finds the distance of the starting city from the first station
-
+  let firstCityWithStation = citiesWithStations[0];
+  if(firstCityWithStation > maxDistance) {
+    maxDistance = firstCityWithStation;
+  }
   // Finds the distance between the last station and the last city
-
+  let lastCityWithStation = citiesWithStations[citiesWithStations.length-1];
+  if((numberOfCities - lastCityWithStation) > maxDistance) {
+    maxDistance = numberOfCities - lastCityWithStation;
+  }
   // returns max distance
+  console.log('thisHappened', maxDistance);
+  return maxDistance;
 }
 
 
 // testing
-// flatlandSpaceStations(5, [0, 4]); //expecting 2
+flatlandSpaceStations(5, [0, 4]); //expecting 2
 //  flatlandSpaceStations(6, [0, 1, 2, 3, 4, 5]); // expecting 0
 //  flatlandSpaceStations(20, [13, 1, 11, 10, 6]); // expecting
