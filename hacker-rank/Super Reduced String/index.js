@@ -7,7 +7,6 @@ function superReducedString(s) {
     return newString;
   }
 
-  console.log('thisHappened', newString);
   // Runs string reducing function
   let changeHappened = true;
   while(changeHappened === true) {
@@ -24,11 +23,10 @@ function superReducedString(s) {
   }
   newString = newString.join('');
   if(newString === '') {
-    newString = "Empty Array"
+    newString = "Empty String";
   }
-  console.log('thisHappened', newString);
-  return newString;
 
+  return newString;
 }
 
 
