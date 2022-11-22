@@ -1,11 +1,13 @@
 function superReducedString(s) {
   let newString = "Empty String";
+  // Checks argument string
   if(s.length > 0) {
-    newString = s;
+    newString = s.split();
   } else {
     return newString;
   }
-  // Write your code here
+
+  // Runs string reducing function
 
 }
 
