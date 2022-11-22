@@ -9,23 +9,28 @@ function superReducedString(s) {
 
   console.log('thisHappened', newString);
   // Runs string reducing function
-  let updatedString = '';
-  for(let k = 0; k < newString.length-1; k++) {
-    let index0 = newString[k];
-    let index1 = newString[k+1];
-    if (index0 !== index1) {
-      updatedString += index0;
+  let changeHappened = true;
+  while(changeHappened === true) {
+    changeHappened = false;
+    for(let k = 0; k < newString.length-1; k++) {
+      let index0 = newString[k];
+      let index1 = newString[k+1];
+      if (index0 === index1) {
+        newString.splice(k, 2);
+        changeHappened = true;
+      }
     }
-  }
 
-  if(updatedString === '') {
-    return "Empty String"
   }
-  console.log('thisHappened', updatedString);
+  newString = newString.join('');
+  if(newString === '') {
+    newString = "Empty Array"
+  }
+  console.log('thisHappened', newString);
   return newString;
 
 }
 
 
 // Tests
-superReducedString('abba');
+superReducedString('abcba');
