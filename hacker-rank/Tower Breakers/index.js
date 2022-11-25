@@ -2,14 +2,18 @@
 // m is an Interger denoting the HEIGHT of EACH tower
 
 // Players can reduce their tower height of x by y. And y must evenly divide into x.
-// Remove a number greater than 1 but less than x. Ok to use 1 if your tower height is 2
+// Remove a number greater than or equal to 1 but less than x.
 // When the tower is evenly divided by height: newTowerHeight = towerHeight - y;
 
 // 2 Players. Player 1 always goes first
 
 function towerBreakers(n, m) {
   // Write your code here
-
+  if(n % 2 === 0) {
+    return 2;
+  } else {
+    return 1;
+  }
   // Player 1 Turn
   // Player 2 Turn
   // Repeat turns until game ends
@@ -18,4 +22,5 @@ function towerBreakers(n, m) {
 }
 
 //tests
-towerBreakers()
+console.log("test1:", towerBreakers(2,2)); //expecting player 2
+console.log("test2:", towerBreakers(1,4)); //expecting player 1
