@@ -9,10 +9,13 @@
 
 function towerBreakers(n, m) {
   // Write your code here
-  if(n % 2 === 0) {
+  if(m === 1) {
     return 2;
-  } else {
+  }
+  if(n % 2 === 0) {
     return 1;
+  } else {
+    return 2;
   }
   // Player 1 Turn
   // Player 2 Turn
