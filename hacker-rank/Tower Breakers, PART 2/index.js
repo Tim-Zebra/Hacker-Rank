@@ -14,3 +14,5 @@ function towerBreakers(arr) {
 
 console.log("test1:", towerBreakers([1,2])); //expecting player 1
 console.log("test2:", towerBreakers([1,2,3])); //expecting player 2
+
+// Tests pass locally. Same logic as is used in part 1, however, logic does not carry over for some reason. Need to investigate further
